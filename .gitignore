@@ -1,1 +1,4 @@
+# Python
 /djangular-trivia-venv
+*.pyc
+*.pyo
