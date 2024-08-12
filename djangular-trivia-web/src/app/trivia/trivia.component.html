@@ -1,51 +1,114 @@
-<div id="question-container">
-  <div id="question-header">
-    <h3>Question {{ questionNumber + 1 }}</h3>
-    <h3 class="score">Score: {{ correctAnswers }}/{{ questionNumber }}</h3>
-  </div>
-  <ng-container *ngIf="question; else quizComplete">
-    <p>
-      <b>{{ question.category }}</b>
-    </p>
-    <label
-      id="question-radio-group-label"
-      [innerHTML]="question.question"
-    ></label>
-    <mat-radio-group
-      aria-labelledby="question-radio-group-label"
-      class="question-radio-group"
-      [disabled]="disableRadioButtons"
-      [(ngModel)]="answer"
-    >
-      <mat-radio-button
-        class="question-radio-button"
-        *ngFor="let answer of question.answers"
-        [value]="answer"
-        (change)="answerSelected($event)"
-      >
-        {{ answer.answer }}
-      </mat-radio-button>
-    </mat-radio-group>
-
-    <div *ngIf="answer">
-      <div *ngIf="answer.is_correct; else incorrect">
-        <p>Correct!</p>
+<div class="component-container">
+  <ng-container *ngIf="!question">
+    <div class="api-builder">
+      <div class="api-builder__option">
+        <h4>How many questions?</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Amount</mat-label>
+          <mat-select [(ngModel)]="selectedAmount" name="amount">
+            <mat-option *ngFor="let amount of amountOptions" [value]="amount">
+              {{amount}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
-      <ng-template #incorrect>
-        <p>Wrong! The correct answer is {{ getCorrectAnswer() }}</p>
-      </ng-template>
+      <div class="api-builder__option">
+        <h4>What category?</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Categories</mat-label>
+          <mat-select [(ngModel)]="selectedCategory" name="categories">
+            <mat-option *ngFor="let category of categoryOptions" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="api-builder__option">
+        <h4>What difficulty?</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Difficulties</mat-label>
+          <mat-select [(ngModel)]="selectedDifficulty" name="difficulty">
+            <mat-option *ngFor="let difficulty of difficultyOptions" [value]="difficulty">
+              {{difficulty}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="api-builder__option">
+        <h4>What type of questions?</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Types</mat-label>
+          <mat-select [(ngModel)]="selectedType" name="type">
+            <mat-option *ngFor="let type of typeOptions" [value]="type">
+              {{type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
-    <button
-      mat-flat-button
-      color="primary"
-      id="next-button"
-      [disabled]="disableNextButton"
-      (click)="getNextQuestion()"
-    >
-      Next Question
-    </button>
+    <div>
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="getTrivia()"
+      >
+        Start
+      </button>
+    </div>
   </ng-container>
-  <ng-template #quizComplete>
-    <p>We're all out of questions!</p>
-  </ng-template>
+  <ng-container *ngIf="question">
+    <button
+        mat-flat-button
+        color="primary"
+        (click)="getDifferentQuestions()"
+      >
+        Restart
+      </button>
+    <div id="question-header">
+      <h3>Question {{ questionNumber + 1 }}</h3>
+      <h3 class="score">Score: {{ correctAnswers }}/{{ selectedAmount }}</h3>
+    </div>
+    <ng-container *ngIf="question; else quizComplete">
+      <p>
+        <b [innerHTML]="question.category"></b>
+      </p>
+      <p id="question-radio-group-label" [innerHTML]="question.question"></p>
+      <mat-radio-group
+        aria-labelledby="question-radio-group-label"
+        class="question-radio-group"
+        [disabled]="disableRadioButtons"
+        [(ngModel)]="answer"
+      >
+        <mat-radio-button
+          class="question-radio-button"
+          *ngFor="let answer of question.answers"
+          [value]="answer"
+          (change)="answerSelected($event)"
+        >
+          <span [innerHTML]="answer.answer"></span>
+        </mat-radio-button>
+      </mat-radio-group>
+  
+      <div *ngIf="answer">
+        <div *ngIf="answer.is_correct; else incorrect">
+          <p>Correct!</p>
+        </div>
+        <ng-template #incorrect>
+          <p>Incorrect. The correct answer is <span [innerHTML]="getCorrectAnswer()"></span></p>
+        </ng-template>
+      </div>
+      <button
+        mat-flat-button
+        color="primary"
+        id="next-button"
+        [disabled]="disableNextButton"
+        (click)="getNextQuestion()"
+      >
+        Next Question
+      </button>
+    </ng-container>
+    <ng-template #quizComplete>
+      <p>We're all out of questions!</p>
+    </ng-template>
+  </ng-container>
 </div>
