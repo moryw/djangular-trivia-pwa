@@ -4,16 +4,19 @@ import { RouterModule } from '@angular/router'
 
 import { MatSelectModule } from '@angular/material/select'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MaterialComponent } from './material/material.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    TriviaComponent
+    TriviaComponent,
+    MaterialComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: '', component: TriviaComponent }
+      { path: 'trivia', component: TriviaComponent },
+      { path: 'material', component: MaterialComponent }
     ]),
     BrowserAnimationsModule,
     MatToolbarModule,
