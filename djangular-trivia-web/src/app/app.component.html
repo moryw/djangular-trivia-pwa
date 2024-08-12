@@ -1,5 +1,15 @@
 <mat-toolbar color="primary">
-  <span>Trivia App</span>
+  <mat-toolbar-row>
+    <span>Djangular Junk Drawer</span>
+    <span class="flex-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/material">Material</button>
+      <button mat-menu-item routerLink="/trivia">Trivia</button>
+    </mat-menu>
+  </mat-toolbar-row>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

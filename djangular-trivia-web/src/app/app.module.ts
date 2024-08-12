@@ -1,10 +1,21 @@
-import { NgModule, isDevMode } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, isDevMode } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule } from '@angular/router'
 
+import { AppComponent } from './app.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { TriviaComponent } from './trivia/trivia.component'
+import { HttpClientModule } from "@angular/common/http"
+import { FormsModule } from "@angular/forms"
+import { MatRadioModule } from "@angular/material/radio"
+import { MatButtonModule } from "@angular/material/button"
 import { MatSelectModule } from '@angular/material/select'
+import { ServiceWorkerModule } from '@angular/service-worker'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MaterialComponent } from './material/material.component'
+import { MatIconModule } from '@angular/material/icon'
+import { MatMenuModule } from '@angular/material/menu'
 
 @NgModule({
   declarations: [
@@ -24,6 +35,8 @@ import { MaterialComponent } from './material/material.component'
     FormsModule,
     MatRadioModule,
     MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
     MatSelectModule,
     MatSlideToggleModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
