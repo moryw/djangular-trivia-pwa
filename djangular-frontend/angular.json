@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/djangular-trivia-web",
+            "outputPath": "../static/dist/djangular-trivia-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [

@@ -2,3 +2,4 @@
 /djangular-trivia-venv
 *.pyc
 *.pyo
+/static
