@@ -16,6 +16,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MaterialComponent } from './material/material.component'
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
+import { MatGridListModule } from '@angular/material/grid-list'
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatMenuModule } from '@angular/material/menu'
     FormsModule,
     MatRadioModule,
     MatButtonModule,
+    MatGridListModule,
     MatIconModule,
     MatMenuModule,
     MatSelectModule,
