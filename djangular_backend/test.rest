@@ -1,0 +1,24 @@
+GET http://127.0.0.1:8000/api/v1/questions/ HTTP/1.1
+content-type: application/json
+
+###
+
+POST http://127.0.0.1:8000/api/v1/login
+content-type: application/json
+
+{ "username": "mory", "password": "P@ss1234!"}
+
+###
+
+POST http://127.0.0.1:8000/api/v1/signup
+content-type: application/json
+
+{ "username": "mory", "password": "P@ss1234!", "email": "mory@test.com" }
+
+###
+
+GET http://127.0.0.1:8000/api/v1/test_token
+content-type: application/json
+Authorization: Token dce5369beb700213ad17f3bc8a546f60d0745a7e
+
+{}
