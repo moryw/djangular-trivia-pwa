@@ -1,0 +1,19 @@
+<div class="component-container">
+  <div class="auth-container">
+    <form class="auth-container__form" [formGroup]="loginForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput type="email" placeholder="pat@example.com" [formControl]="isValidEmail" formControlName="email" required>
+        <mat-error *ngIf="isValidEmail.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-flat-button color="primary" (pointerup)="onSubmit()">Login</button>
+    </form>
+  </div>
+</div>
