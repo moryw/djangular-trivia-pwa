@@ -4,3 +4,4 @@
 *.pyo
 /static
 *.sqlite3
+/venv
