@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core'
-import { TriviaService } from "../services/trivia.service"
+import { TriviaService } from "../services/trivia/trivia.service"
 import { Question, QuestionArray, Answer, CategoryArray } from "../interfaces/trivia.interface"
 import { MatRadioChange } from "@angular/material/radio"
 

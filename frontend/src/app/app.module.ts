@@ -49,6 +49,8 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatTreeModule } from '@angular/material/tree'
+import { HighchartsComponent } from './highcharts/highcharts.component'
+import { HighchartsChartModule } from 'highcharts-angular'
 
 
 @NgModule({
@@ -57,18 +59,21 @@ import { MatTreeModule } from '@angular/material/tree'
     TriviaComponent,
     MaterialComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HighchartsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'trivia', component: TriviaComponent },
-      { path: 'material', component: MaterialComponent }
+      { path: 'material', component: MaterialComponent },
+      { path: 'highcharts', component: HighchartsComponent }
     ]),
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
+    HighchartsChartModule,
     FormsModule,
     MatAutocompleteModule,
     MatBadgeModule,

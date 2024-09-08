@@ -1,0 +1,17 @@
+<div class="component-container">
+  <highcharts-chart 
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+
+    style="width: 100%; height: 400px; display: block;"
+  ></highcharts-chart>
+  <div>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="getHighData()"
+    >
+      Start
+    </button>
+  </div>
+</div>

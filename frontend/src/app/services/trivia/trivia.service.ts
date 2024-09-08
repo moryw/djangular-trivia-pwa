@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core'
 import { map, Observable } from "rxjs"
 import { HttpClient } from "@angular/common/http"
 
-import { ApiCategoryRes, ApiQuestionsRes, CategoryArray, Question, QuestionArray } from "../interfaces/trivia.interface"
-import { shuffleArray } from '../utils/arrays'
+import { ApiCategoryRes, ApiQuestionsRes, CategoryArray, Question, QuestionArray } from "../../interfaces/trivia.interface"
+import { shuffleArray } from '../../utils/arrays'
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
 
 
